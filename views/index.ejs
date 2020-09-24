@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <p id="instruction"></p>
+
+    <p id="countdown"></p>
+
+    <p id="exercise"></p>
+
+    <p> Total rounds: <span id="rounds">0</span></p>
+
+    <script>
+
+    // define exercise picker
+    const exercises = ["press ups","burpees","crunches","crab toe touches","plank",
+    "crunch and cycle","plank tees","squats","lunges", "breaststroke","supermans",
+    "dance","run on spot","star jumps","shadow boxing", "Twists – child and back","running in plank"]
+
+    function expick(){
+      let n = Math.floor(Math.random() * (exercises.length));
+      return exercises[n];
+    };
+    // Set up initial conditions for warm up
+
+    document.getElementById("instruction").innerHTML = "Warm up";
+    let counter = "rest";
+    let t = 61;
+    let rounds = 0;
+    let exercise = expick();
+    document.getElementById("exercise").innerHTML = "First exercise: " + exercise;
+
+    // exercises
+    var x = setInterval(function() {
+
+      if (t == 1){
+        if (counter == "rest"){
+          counter = "go";
+          t = 41;
+          document.getElementById("instruction").innerHTML = "Go!";
+
+          document.getElementById("exercise").innerHTML = exercise;
+
+        } else if (counter == "go"){
+          counter = "rest";
+          t = 21;
+          document.getElementById("instruction").innerHTML = "Rest";
+          rounds = rounds + 1
+          document.getElementById("rounds").innerHTML = rounds
+
+          exercise = expick();
+          document.getElementById("exercise").innerHTML = "Next exercise: " + exercise;
+        };
+      };
+
+      t = t-1;
+      document.getElementById("countdown").innerHTML = t;
+
+    }, 1000);
+
+    </script>
+  </body>
+</html>

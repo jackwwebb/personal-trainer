@@ -1,0 +1,30 @@
+Go / Rest
+
+Countdown
+
+[Next:] Exercise
+
+Total Time
+
+60 secs warm up at start:
+cd to 60 and Countdown
+instruction to warm up
+
+loop:
+set instruction to rest
+set cd to 20 and Countdown
+pick Exercise - read list (csv for now) and pick at random
+set exercise to next: Exercise
+
+set cd to 40 and countdown
+set instruction to go
+set exercise to exercise
+
+number of rounds += 1
+set number of rounds
+
+design - make vertical and big and simple
+
+later
+could add random images, quotes
+add a new page to change the exercises (maybe use a database - https://codingstatus.com/how-to-display-data-from-mysql-database-table-in-node-js/)
